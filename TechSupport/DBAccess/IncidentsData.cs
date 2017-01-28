@@ -44,8 +44,14 @@ namespace TechSupport.DBAccess
                     }
                 }
             }
-            catch { }
-
+            catch (SqlException e)
+            {
+                throw e;
+            }
+            catch (Exception e) {
+                throw e;
+            }
+            return openIncidentList;
         }
 
     }
