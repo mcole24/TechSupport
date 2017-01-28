@@ -18,7 +18,29 @@ namespace TechSupport.Model
         private string title;
         private string description;
 
+        public int getIncidentID() { return incidentID; }
+        public void setIncidentID(int input) { incidentID = input; }
 
+        public int getCustomerID() { return customerID; }
+        public void setCustomerID(int input) { customerID = input; }
+
+        public string getProductCode() { return productCode; }
+        public void setProductCode(string input) { productCode = input; }
+
+        public int getTechID() { return techID; }
+        public void setTechID(int input) { techID = input; }
+
+        public DateTime getDateOpened() { return dateOpened; }
+        public void setDateOpened(DateTime input) { dateOpened = input; }
+
+        public DateTime getDateClosed() { return dateClosed; }
+        public void setDateClosed(DateTime input) { dateClosed = input; }
+
+        public string getTitle() { return title; }
+        public void setTitle(string input) { title = input; }
+
+        public string getDescription() { return description; }
+        public void setDescription(string input) { description = input; }
 
     }
 }
