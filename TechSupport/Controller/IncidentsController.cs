@@ -14,7 +14,7 @@ namespace TechSupport.Controller
         public IncidentsController() { }
 
         public List<Incidents> DisplayOpenIncidents(){
-            
+            return IncidentsData.DisplayOpenIncidents();
         }
 
     }
