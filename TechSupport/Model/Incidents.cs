@@ -17,6 +17,8 @@ namespace TechSupport.Model
         private DateTime dateClosed;
         private string title;
         private string description;
+        private string customerName;
+        private string technician;
 
         public int getIncidentID() { return incidentID; }
         public void setIncidentID(int input) { incidentID = input; }
@@ -41,6 +43,12 @@ namespace TechSupport.Model
 
         public string getDescription() { return description; }
         public void setDescription(string input) { description = input; }
+
+        public string getCustomerName() { return customerName; }
+        public void setCustomerName(string input) { customerName = input; }
+
+        public string getTechnician() { return technician; }
+        public void setTechnician(string input) { technician = input; }
 
     }
 }

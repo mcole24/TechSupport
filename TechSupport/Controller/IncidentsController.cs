@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TechSupport.DBAccess;
+using TechSupport.Model;
 
 namespace TechSupport.Controller
 {
