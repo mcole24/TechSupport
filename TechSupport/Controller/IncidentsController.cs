@@ -12,7 +12,9 @@ namespace TechSupport.Controller
 
         public IncidentsController() { }
 
-        
+        public List<Incidents> DisplayOpenIncidents(){
+            
+        }
 
     }
 }
