@@ -20,6 +20,8 @@ namespace TechSupport.Model
         private string customerName;
         private string technician;
 
+        public Incidents() { }
+
         public int getIncidentID() { return incidentID; }
         public void setIncidentID(int input) { incidentID = input; }
 

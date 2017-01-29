@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.openIncidentsListView = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ProductCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.DateOpened = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Customer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Technician = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // openIncidentsListView
             // 
             this.openIncidentsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5});
+            this.ProductCode,
+            this.DateOpened,
+            this.Customer,
+            this.Technician,
+            this.Title});
             this.openIncidentsListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.openIncidentsListView.Location = new System.Drawing.Point(0, 0);
             this.openIncidentsListView.Name = "openIncidentsListView";
@@ -52,29 +52,29 @@
             this.openIncidentsListView.UseCompatibleStateImageBehavior = false;
             this.openIncidentsListView.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
-            // columnHeader1
+            // ProductCode
             // 
-            this.columnHeader1.Text = "Product Code";
+            this.ProductCode.Text = "Product Code";
             // 
-            // columnHeader2
+            // DateOpened
             // 
-            this.columnHeader2.Text = "Date Opened";
-            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.DateOpened.Text = "Date Opened";
+            this.DateOpened.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // columnHeader3
+            // Customer
             // 
-            this.columnHeader3.Text = "Customer";
-            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Customer.Text = "Customer";
+            this.Customer.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // columnHeader4
+            // Technician
             // 
-            this.columnHeader4.Text = "Technician";
-            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Technician.Text = "Technician";
+            this.Technician.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // columnHeader5
+            // Title
             // 
-            this.columnHeader5.Text = "Title";
-            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Title.Text = "Title";
+            this.Title.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // OpenIncidentsForm
             // 
@@ -93,10 +93,10 @@
         #endregion
 
         private System.Windows.Forms.ListView openIncidentsListView;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader ProductCode;
+        private System.Windows.Forms.ColumnHeader DateOpened;
+        private System.Windows.Forms.ColumnHeader Customer;
+        private System.Windows.Forms.ColumnHeader Technician;
+        private System.Windows.Forms.ColumnHeader Title;
     }
 }
