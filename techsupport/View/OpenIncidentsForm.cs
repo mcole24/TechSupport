@@ -45,7 +45,7 @@ namespace TechSupport.View
                         openIncidentsListView.Items[item].SubItems.Add(incident.Title);
                     }
                 }
-                else
+                else //error handling
                 {
                     MessageBox.Show("No open incidents were found.");
                     this.Close();
