@@ -50,7 +50,7 @@
             this.openIncidentsListView.Size = new System.Drawing.Size(557, 341);
             this.openIncidentsListView.TabIndex = 0;
             this.openIncidentsListView.UseCompatibleStateImageBehavior = false;
-            this.openIncidentsListView.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.openIncidentsListView.View = System.Windows.Forms.View.Details;
             // 
             // ProductCode
             // 

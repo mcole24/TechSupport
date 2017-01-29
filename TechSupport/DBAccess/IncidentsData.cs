@@ -33,11 +33,11 @@ namespace TechSupport.DBAccess
                             while (reader.Read())
                             {
                                 Incidents incident = new Incidents();
-                                incident.setProductCode(reader["productCode"].ToString());
-                                incident.setDateOpened((DateTime)reader["dateOpened"]);
-                                incident.setCustomerName(reader["Customer"].ToString());
-                                incident.setTechnician(reader["Technician"].ToString());
-                                incident.setTitle(reader["Title"].ToString());
+                                incident.ProductCode = reader["productCode"].ToString();
+                                incident.DateOpened = (DateTime)reader["dateOpened"];
+                                incident.CustomerName = reader["Customer"].ToString();
+                                incident.Technician = reader["Technician"].ToString();
+                                incident.Title = reader["Title"].ToString();
                                 openIncidentList.Add(incident);
                             }
                         }

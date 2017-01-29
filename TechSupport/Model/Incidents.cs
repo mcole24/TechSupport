@@ -22,35 +22,64 @@ namespace TechSupport.Model
 
         public Incidents() { }
 
-        public int getIncidentID() { return incidentID; }
-        public void setIncidentID(int input) { incidentID = input; }
+        public int IncidentID {
+            get { return incidentID; }
+            set { incidentID = value; }
+        }
 
-        public int getCustomerID() { return customerID; }
-        public void setCustomerID(int input) { customerID = input; }
+        public int CustomerID
+        {
+            get { return customerID; }
+            set { customerID = value; }
+        }
 
-        public string getProductCode() { return productCode; }
-        public void setProductCode(string input) { productCode = input; }
+        public string ProductCode
+        {
+            get { return productCode; }
+            set { productCode = value; }
+        }
 
-        public int getTechID() { return techID; }
-        public void setTechID(int input) { techID = input; }
+        public int TechID
+        {
+            get { return techID; }
+            set { techID = value; }
+        }
 
-        public DateTime getDateOpened() { return dateOpened; }
-        public void setDateOpened(DateTime input) { dateOpened = input; }
+        public DateTime DateOpened
+        {
+            get { return dateOpened; }
+            set { dateOpened = value; }
+        }
 
-        public DateTime getDateClosed() { return dateClosed; }
-        public void setDateClosed(DateTime input) { dateClosed = input; }
+        public DateTime DateClosed
+        {
+            get { return dateClosed; }
+            set { dateClosed = value; }
+        }
 
-        public string getTitle() { return title; }
-        public void setTitle(string input) { title = input; }
+        public string Title
+        {
+            get { return title; }
+            set { title = value; }
+        }
 
-        public string getDescription() { return description; }
-        public void setDescription(string input) { description = input; }
+        public string Description
+        {
+            get { return description; }
+            set { description = value; }
+        }
 
-        public string getCustomerName() { return customerName; }
-        public void setCustomerName(string input) { customerName = input; }
+        public string CustomerName
+        {
+            get { return customerName; }
+            set { customerName = value; }
+        }
 
-        public string getTechnician() { return technician; }
-        public void setTechnician(string input) { technician = input; }
+        public string Technician
+        {
+            get { return technician; }
+            set { technician = value; }
+        }
 
     }
 }

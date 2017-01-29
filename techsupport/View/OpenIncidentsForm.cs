@@ -22,10 +22,7 @@ namespace TechSupport.View
             iController = new IncidentsController();
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void OpenIncidentsForm_Load(object sender, EventArgs e)
         {
@@ -41,11 +38,11 @@ namespace TechSupport.View
                     for (int item = 0; item < incidentList.Count; item++)
                     {
                         incident = incidentList[item];
-                        openIncidentsListView.Items.Add(incident.getProductCode());
-                        openIncidentsListView.Items[item].SubItems.Add(incident.getDateOpened().ToShortDateString());
-                        openIncidentsListView.Items[item].SubItems.Add(incident.getCustomerName());
-                        openIncidentsListView.Items[item].SubItems.Add(incident.getTechnician());
-                        openIncidentsListView.Items[item].SubItems.Add(incident.getTitle());
+                        openIncidentsListView.Items.Add(incident.ProductCode);
+                        openIncidentsListView.Items[item].SubItems.Add(incident.DateOpened.ToShortDateString());
+                        openIncidentsListView.Items[item].SubItems.Add(incident.CustomerName);
+                        openIncidentsListView.Items[item].SubItems.Add(incident.Technician);
+                        openIncidentsListView.Items[item].SubItems.Add(incident.Title);
                     }
                 }
                 else
