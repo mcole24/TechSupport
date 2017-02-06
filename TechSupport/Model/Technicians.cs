@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TechSupport.Model
 {
-    class Technicians
+    public class Technicians
     {
 
         public Technicians() { }

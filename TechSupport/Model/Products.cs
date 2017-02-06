@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TechSupport.Model
 {
-    class Products
+    public class Products
     {
 
         public Products() { }

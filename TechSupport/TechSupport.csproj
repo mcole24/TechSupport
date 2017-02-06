@@ -62,9 +62,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\IncidentsController.cs" />
+    <Compile Include="DBAccess\CustomersData.cs" />
     <Compile Include="DBAccess\DBConnection.cs" />
     <Compile Include="DBAccess\IncidentsData.cs" />
+    <Compile Include="DBAccess\ProductsData.cs" />
+    <Compile Include="DBAccess\TechniciansData.cs" />
+    <Compile Include="Model\Customers.cs" />
     <Compile Include="Model\Incidents.cs" />
+    <Compile Include="Model\Products.cs" />
+    <Compile Include="Model\Technicians.cs" />
     <Compile Include="View\CreateIncidentForm.cs">
       <SubType>Form</SubType>
     </Compile>
