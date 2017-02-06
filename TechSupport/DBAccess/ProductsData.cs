@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace TechSupport.DBAccess
 {
-    public static class ProductData
+    public static class ProductsData
     {
 
         public static List<Products> GetProducts()

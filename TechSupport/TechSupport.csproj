@@ -61,7 +61,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\CustomersController.cs" />
     <Compile Include="Controller\IncidentsController.cs" />
+    <Compile Include="Controller\ProductsController.cs" />
+    <Compile Include="Controller\TechniciansController.cs" />
     <Compile Include="DBAccess\CustomersData.cs" />
     <Compile Include="DBAccess\DBConnection.cs" />
     <Compile Include="DBAccess\IncidentsData.cs" />
