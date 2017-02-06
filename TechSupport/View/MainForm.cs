@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TechSupport.View;
+using System.Data.SqlClient;
 
 namespace TechSupport
 {
@@ -19,6 +20,7 @@ namespace TechSupport
         }
 
         OpenIncidentsForm oif;
+        CreateIncidentForm cif;
 
         private void displayOpenIncidentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -42,6 +44,18 @@ namespace TechSupport
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void createIncidentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (SqlException excp)
+            {
+                MessageBox.Show(excp.Message, excp.GetType().ToString());
+            }
         }
     }
 }
