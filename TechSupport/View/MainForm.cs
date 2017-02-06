@@ -41,21 +41,27 @@ namespace TechSupport
             oif = null;
         }
 
+        private void cif_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            cif = null;
+        }
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
         private void createIncidentToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
+        {  
 
-            }
-            catch (SqlException excp)
+            if (cif == null)
             {
-                MessageBox.Show(excp.Message, excp.GetType().ToString());
+                cif = new View.CreateIncidentForm();
+                cif.MdiParent = this;
+                cif.FormClosed += new FormClosedEventHandler(cif_FormClosed);
             }
+            else cif.Activate();
+            
         }
     }
 }

@@ -16,5 +16,20 @@ namespace TechSupport.View
         {
             InitializeComponent();
         }
+
+        private void createIncidentButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CreateIncidentForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

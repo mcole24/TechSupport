@@ -42,6 +42,7 @@
             // 
             // customerNameBox
             // 
+            this.customerNameBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.customerNameBox.FormattingEnabled = true;
             this.customerNameBox.Location = new System.Drawing.Point(126, 28);
             this.customerNameBox.Name = "customerNameBox";
@@ -60,6 +61,7 @@
             // 
             // productNameBox
             // 
+            this.productNameBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.productNameBox.FormattingEnabled = true;
             this.productNameBox.Location = new System.Drawing.Point(126, 55);
             this.productNameBox.Name = "productNameBox";
@@ -116,6 +118,7 @@
             this.createIncidentButton.TabIndex = 8;
             this.createIncidentButton.Text = "Create Incident";
             this.createIncidentButton.UseVisualStyleBackColor = true;
+            this.createIncidentButton.Click += new System.EventHandler(this.createIncidentButton_Click);
             // 
             // cancelButton
             // 
@@ -125,6 +128,7 @@
             this.cancelButton.TabIndex = 9;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // CreateIncidentForm
             // 
@@ -142,8 +146,10 @@
             this.Controls.Add(this.customerLabel);
             this.Controls.Add(this.customerNameBox);
             this.Name = "CreateIncidentForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateIncidentForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.CreateIncidentForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
