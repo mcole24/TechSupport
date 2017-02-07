@@ -51,7 +51,9 @@ namespace TechSupport.View
 
                 try
                 {
-                    
+                    iControl.AddIncident(inc);
+                    MessageBox.Show("New incident submitted.");
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
