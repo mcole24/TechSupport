@@ -147,8 +147,8 @@
             this.Controls.Add(this.customerNameBox);
             this.Name = "CreateIncidentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CreateIncidentForm";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Text = "Create Incident";
+            //this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CreateIncidentForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

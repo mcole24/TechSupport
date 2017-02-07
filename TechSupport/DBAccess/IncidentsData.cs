@@ -66,7 +66,7 @@ namespace TechSupport.DBAccess
             SqlCommand insertCmd = new SqlCommand(insertStatement, connect);
             insertCmd.Parameters.AddWithValue("@CustomerID", inc.CustomerID);
             insertCmd.Parameters.AddWithValue("@ProductCode", inc.ProductCode);
-            insertCmd.Parameters.AddWithValue("@DateOpened", inc.DateOpened);
+            insertCmd.Parameters.AddWithValue("@DateOpened", DateTime.Now);
             insertCmd.Parameters.AddWithValue("@Title", inc.Title);
             insertCmd.Parameters.AddWithValue("@Description", inc.Description);
 
@@ -74,7 +74,7 @@ namespace TechSupport.DBAccess
             {
                 connect.Open();
                 insertCmd.ExecuteNonQuery();
-                string selStatement = "SELECT INDENT_CURRENT('Incidents') FROM Incidents";
+                string selStatement = "SELECT TOP(1) IncidentID FROM Incidents ORDER BY DateOpened DESC";
                 SqlCommand selCmd = new SqlCommand(selStatement, connect);
                 int incidentID = Convert.ToInt32(selCmd.ExecuteScalar());
                 return incidentID;

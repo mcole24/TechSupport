@@ -59,6 +59,7 @@ namespace TechSupport
                 cif = new View.CreateIncidentForm();
                 cif.MdiParent = this;
                 cif.FormClosed += new FormClosedEventHandler(cif_FormClosed);
+                cif.Show();
             }
             else cif.Activate();
             
