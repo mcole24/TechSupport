@@ -17,5 +17,10 @@ namespace TechSupport.Controller
             return IncidentsData.DisplayOpenIncidents();
         }
 
+        public void AddIncident(Incidents inc)
+        {
+            IncidentsData.AddIncident(inc);
+        }
+
     }
 }
