@@ -92,6 +92,80 @@ namespace TechSupport.DBAccess
 
 
 
+        public static Incidents GetIncident(int @incidentID)
+        {
+
+            Incidents inc = new Incidents();
+            string selStmt = "SELECT IncidentID, Incidents.CustomerID, Customers.Name, ProductCode, DateOpened, Title, Description, Tech ID " + 
+                "FROM Incidents INNER JOIN Customers ON Incidents.CustomerID = Customers.CustomerID WHERE IncidentID = " + @incidentID;
+
+            try
+            {
+
+                using (SqlConnection connect = DBConnection.GetConnection())
+                {
+
+                    try
+                    {
+
+                        connect.Open();
+
+                    }
+                    catch (SqlException sqlex) { throw sqlex; }
+
+                    using (SqlCommand selCmd = new SqlCommand(selStmt, connect))
+
+                    using (SqlDataReader reader = selCmd.ExecuteReader())
+                    {
+
+                        int customerName = reader.GetOrdinal("Name");
+                        int productCode = reader.GetOrdinal("ProductCode");
+                        int dateOpened = reader.GetOrdinal("DateOpened");
+                        int title = reader.GetOrdinal("Title");
+                        int description = reader.GetOrdinal("Description");
+                        int techID = reader.GetOrdinal("TechID");
+
+                        while (reader.Read())
+                        {
+
+                            if (reader.IsDBNull(inc.TechID))
+                            {
+                                inc = null;
+                            }
+                            else
+                            {
+                                inc.TechID = (int)reader["TechID"];
+                            }
+
+                            inc.IncidentID = (int)reader["IncidentID"];
+                            inc.CustomerID = (int)reader["CustomerID"];
+                            inc.CustomerName = reader.GetString(customerName);
+                            inc.ProductCode = reader.GetString(productCode);
+                            inc.DateOpened = reader.GetDateTime(dateOpened);
+                            inc.Title = reader.GetString(title);
+                            inc.Description = reader.GetString(description);
+
+                        }
+
+                        connect.Close();
+
+                    }
+
+                }
+
+            }
+            catch (SqlException sqlex) { throw sqlex; }
+            catch (Exception ex) { throw ex;  }
+
+            return inc;
+
+        }
+
+
+
+
+
+
 
     }
 }
