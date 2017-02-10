@@ -34,6 +34,7 @@
             this.incidentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.displayOpenIncidentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createIncidentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateIncidentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +68,8 @@
             // 
             this.incidentsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.displayOpenIncidentsToolStripMenuItem,
-            this.createIncidentToolStripMenuItem});
+            this.createIncidentToolStripMenuItem,
+            this.updateIncidentToolStripMenuItem});
             this.incidentsToolStripMenuItem.Name = "incidentsToolStripMenuItem";
             this.incidentsToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.incidentsToolStripMenuItem.Text = "Incidents";
@@ -85,6 +87,13 @@
             this.createIncidentToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.createIncidentToolStripMenuItem.Text = "Create Incident";
             this.createIncidentToolStripMenuItem.Click += new System.EventHandler(this.createIncidentToolStripMenuItem_Click);
+            // 
+            // updateIncidentToolStripMenuItem
+            // 
+            this.updateIncidentToolStripMenuItem.Name = "updateIncidentToolStripMenuItem";
+            this.updateIncidentToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.updateIncidentToolStripMenuItem.Text = "Update Incident";
+            this.updateIncidentToolStripMenuItem.Click += new System.EventHandler(this.updateIncidentToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -111,6 +120,7 @@
         private System.Windows.Forms.ToolStripMenuItem incidentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem displayOpenIncidentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createIncidentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateIncidentToolStripMenuItem;
     }
 }
 
