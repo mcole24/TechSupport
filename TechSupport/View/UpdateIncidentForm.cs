@@ -116,7 +116,17 @@ namespace TechSupport.View
 
         private void LoadTechnicians()
         {
-
+            try
+            {
+                List<Technicians> technicians = TechniciansController.GetTechnicians();
+                technicianComboBox.DataSource = technicians;
+                technicianComboBox.DisplayMember = "Technicians";
+                technicianComboBox.ValueMember = "TechID";
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, e.GetType().ToString());
+            }
         }
 
 

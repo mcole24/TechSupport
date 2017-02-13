@@ -12,7 +12,7 @@ namespace TechSupport.Controller
     {
         public TechniciansController() { }
 
-        public List<Technicians> GetTechnicians()
+        public static List<Technicians> GetTechnicians()
         {
             return TechniciansData.GetTechnicians();
         }
