@@ -74,6 +74,7 @@
             this.getIncidentButton.TabIndex = 2;
             this.getIncidentButton.Text = "Get";
             this.getIncidentButton.UseVisualStyleBackColor = true;
+            this.getIncidentButton.Click += new System.EventHandler(this.getIncidentButton_Click);
             // 
             // customerLabel
             // 
@@ -211,6 +212,7 @@
             this.updateButton.TabIndex = 17;
             this.updateButton.Text = "Update";
             this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
             // closeButton
             // 
@@ -220,6 +222,7 @@
             this.closeButton.TabIndex = 18;
             this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // cancelButton
             // 
@@ -229,6 +232,7 @@
             this.cancelButton.TabIndex = 19;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // UpdateIncidentForm
             // 

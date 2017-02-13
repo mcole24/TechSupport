@@ -22,6 +22,40 @@ namespace TechSupport.View
 
         }
 
-        
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void getIncidentButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ClearFields()
+        {
+            
+
+        }
+
+        private Boolean ConfirmClose()
+        {
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult answer;
+            string prompt = "If you close this incident, you will no longer be able to update it. Are you sure you wish to proceed?";
+            answer = MessageBox.Show(prompt, "Please confirm that you wish to close.", buttons);
+            return (answer == DialogResult.Yes);
+        }
+
     }
 }
