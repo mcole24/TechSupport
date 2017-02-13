@@ -22,7 +22,7 @@ namespace TechSupport.Controller
             IncidentsData.AddIncident(inc);
         }
 
-        public Incidents GetIncident(int incidentID)
+        public static Incidents GetIncident(int incidentID)
         {
             return IncidentsData.GetIncident(incidentID);
         }
