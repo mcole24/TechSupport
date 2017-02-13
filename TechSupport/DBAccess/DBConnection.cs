@@ -13,7 +13,7 @@ namespace TechSupport.DBAccess {
         public static SqlConnection GetConnection() {
             try
             {
-                string connectionString = "Data Source=localhost;Initial Catalog=TechSupport;Integrated Security=True;";
+                string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TechSupport;Integrated Security=True;";
                 SqlConnection connection = new SqlConnection(connectionString);
                 return connection;
             }
