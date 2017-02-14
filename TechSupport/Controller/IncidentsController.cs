@@ -31,7 +31,12 @@ namespace TechSupport.Controller
         {
             return IncidentsData.CloseIncident(incidentID);
         }
-        
+
+        public static bool UpdateIncident(Incidents oldInc, Incidents newInc)
+        {
+            return IncidentsData.UpdateIncident(oldInc, newInc);
+        }
+
 
     }
 }
