@@ -39,12 +39,47 @@ namespace TechSupport.View
 
         private void getIncidentButton_Click(object sender, EventArgs e)
         {
-            this.GetIncident();
+            int incidentID;
+            try
+            {
+                incidentID = Convert.ToInt32(incidentIDBox.Text);
+                this.GetIncident(incidentID);
+            }
+            catch (System.FormatException fex)
+            {
+                MessageBox.Show("Please input whole numbers only for the Incident ID.");
+                incidentIDBox.Text = "";
+                return;
+            }
+        
         }
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-
+            Incidents newInc = new Incidents();
+            newInc.IncidentID = incident.IncidentID;
+            try
+            {
+                bool isUpdated = IncidentsController.UpdateIncident(incident, newInc);
+                if (isUpdated)
+                {
+                    MessageBox.Show("Incident has been updated.");
+                    ClearFields();
+                }
+                else
+                {
+                    MessageBox.Show("There was an error when attempting to update the incident.");
+                    ClearFields();
+                }
+            }
+            catch (SqlException sqlex)
+            {
+                MessageBox.Show(sqlex.Message, sqlex.GetType().ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -85,7 +120,7 @@ namespace TechSupport.View
             this.technicianComboBox.SelectedIndex = -1;
         }
 
-        private Boolean ConfirmClose()
+        private bool ConfirmClose()
         {
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult answer;
@@ -94,20 +129,9 @@ namespace TechSupport.View
             return (answer == DialogResult.Yes);
         }
 
-        private void GetIncident()
+        private void GetIncident(int incidentID)
         {
-            int incidentID;
             
-            try
-            {
-                incidentID = Convert.ToInt32(incidentIDBox.Text);
-            }
-            catch (System.FormatException fex)
-            {
-                MessageBox.Show("Please input whole numbers only for the Incident ID.");
-                incidentIDBox.Text = "";
-                return;
-            }
 
             try
             {
@@ -153,7 +177,7 @@ namespace TechSupport.View
             customerBox.Text = incident.CustomerName;
             productBox.Text = incident.ProductName;
             titleBox.Text = incident.Title;
-            dateOpenedBox.Text = incident.DateOpened.ToString("d");
+            dateOpenedBox.Text = incident.DateOpened.ToString();
             descriptionBox.Text = incident.Description;
             textToAddBox.Enabled = true;
             textToAddBox.ReadOnly = false;
@@ -177,6 +201,8 @@ namespace TechSupport.View
             }
         }
 
+
+        
 
 
     }
