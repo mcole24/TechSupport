@@ -49,7 +49,29 @@ namespace TechSupport.View
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                bool isClosed = IncidentsController.CloseIncident(incident.IncidentID);
+                if (isClosed)
+                {
+                    MessageBox.Show("Incident has been closed.");
+                    this.ClearFields();
+                }
+                else
+                {
+                    MessageBox.Show("The incident could not be closed at ths time");
+                    this.ClearFields();
+                }
+
+            }
+            catch (SqlException sqlex)
+            {
+                MessageBox.Show(sqlex.Message, sqlex.GetType().ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
         }
 
         private void ClearFields()

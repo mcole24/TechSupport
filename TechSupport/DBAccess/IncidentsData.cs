@@ -176,8 +176,7 @@ namespace TechSupport.DBAccess
                     {
                         cmd.Parameters.AddWithValue("@dc", DateTime.Now);
                         cmd.Parameters.AddWithValue("@incID", incidentID);
-                        int rowCount = cmd.ExecuteNonQuery();
-                        return (rowCount > 0);
+                        return (cmd.ExecuteNonQuery() > 0);
                     }
                 }
 
@@ -194,6 +193,49 @@ namespace TechSupport.DBAccess
         }
 
 
+        public static bool UpdateIncident(Incidents oldInc, Incidents newInc)
+        {
+            string updateStmt = "UPDATE Incidents SET TechID = @newTech, Description = @newDesc WHERE IncidentID = @oldIncID AND (TechID = @oldTech OR TechID IS NULL AND @oldTech IS NULL)";
+
+            try
+            {
+                using (SqlConnection connect = DBConnection.GetConnection())
+                {
+                    connect.Open();
+                    using (SqlCommand cmd = new SqlCommand(updateStmt, connect))
+                    {
+                        if (oldInc.TechID == null)
+                        {
+                            cmd.Parameters.AddWithValue("@oldTech", DBNull.Value);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@oldTech", oldInc.TechID);
+                        }
+                        if (newInc.TechID == null)
+                        {
+                            cmd.Parameters.AddWithValue("@newTech", DBNull.Value);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@newTech", newInc.TechID);
+                        }
+                        cmd.Parameters.AddWithValue("@oldIncID", oldInc.IncidentID);
+                        cmd.Parameters.AddWithValue("@oldDesc", oldInc.Description);
+                        cmd.Parameters.AddWithValue("@newDesc", newInc.Description);
+                        return (cmd.ExecuteNonQuery() > 0);
+                    }
+                }
+            }
+            catch (SqlException sqlex)
+            {
+                throw sqlex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
 
     }
