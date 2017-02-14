@@ -16,9 +16,15 @@ namespace TechSupport.View
 {
     public partial class UpdateIncidentForm : Form
     {
+
+        private Incidents incident;
+        private List<Technicians> technicians;
+
+
         public UpdateIncidentForm()
         {
             InitializeComponent();
+            this.incident = new Incidents();
         }
 
         private void UpdateIncidentForm_Load(object sender, EventArgs e)
@@ -43,7 +49,7 @@ namespace TechSupport.View
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void ClearFields()
@@ -69,7 +75,7 @@ namespace TechSupport.View
         private void GetIncident()
         {
             int incidentID;
-            Incidents incident;
+            
             try
             {
                 incidentID = Convert.ToInt32(incidentIDBox.Text);
@@ -83,7 +89,7 @@ namespace TechSupport.View
 
             try
             {
-                incident = IncidentsController.GetIncident(incidentID);
+                this.incident = IncidentsController.GetIncident(incidentID);
             }
             catch (SqlException sqlex)
             {
@@ -91,12 +97,12 @@ namespace TechSupport.View
                 return;
             }
 
-            if (incident == null)
+            if (this.incident == null)
             {
                 MessageBox.Show("No incident could be found with this ID: " + incidentID);
                 return;
             }
-            else if (incident.DateClosed != null)
+            else if (this.incident.DateClosed != null)
             {
                 MessageBox.Show("Incident has been closed already.");
                 return;
@@ -111,6 +117,26 @@ namespace TechSupport.View
 
         private void DisplayIncident()
         {
+            this.LoadTechnicians();
+            if (this.incident.TechID == null)
+            {
+                technicianComboBox.SelectedIndex = -1;
+            }
+            else
+            {
+                technicianComboBox.SelectedIndex = incident.TechID;
+            }
+
+            technicianComboBox.Enabled = true;
+            customerBox.Text = incident.CustomerName;
+            productBox.Text = incident.ProductName;
+            titleBox.Text = incident.Title;
+            dateOpenedBox.Text = incident.DateOpened.ToString("d");
+            descriptionBox.Text = incident.Description;
+            textToAddBox.Enabled = true;
+            textToAddBox.ReadOnly = false;
+            updateButton.Enabled = true;
+            closeButton.Enabled = true;
 
         }
 
@@ -118,7 +144,7 @@ namespace TechSupport.View
         {
             try
             {
-                List<Technicians> technicians = TechniciansController.GetTechnicians();
+                this.technicians = TechniciansController.GetTechnicians();
                 technicianComboBox.DataSource = technicians;
                 technicianComboBox.DisplayMember = "Technicians";
                 technicianComboBox.ValueMember = "TechID";

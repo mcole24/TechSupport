@@ -17,6 +17,8 @@ namespace TechSupport.Model
 
         public string ProductCode { get; set; }
 
+        public string ProductName { get; set; }
+
         public int TechID { get; set; }
 
         public DateTime DateOpened { get; set; }

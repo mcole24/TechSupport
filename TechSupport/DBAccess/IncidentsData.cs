@@ -96,7 +96,7 @@ namespace TechSupport.DBAccess
         {
 
             Incidents inc = new Incidents();
-            string selStmt = "SELECT IncidentID, Incidents.CustomerID, Customers.Name, ProductCode, DateOpened, Title, Description, Tech ID " + 
+            string selStmt = "SELECT IncidentID, Incidents.CustomerID, Customers.Name, ProductCode, DateOpened, Title, Description, TechID " + 
                 "FROM Incidents INNER JOIN Customers ON Incidents.CustomerID = Customers.CustomerID WHERE IncidentID = " + @incidentID;
 
             try
@@ -162,7 +162,36 @@ namespace TechSupport.DBAccess
         }
 
 
+        public static bool CloseIncident(int incidentID)
+        {
 
+            string updateStmt = "UPDATE Incidents SET DateClosed = @dc WHERE IncidentID = @incID";
+
+            try
+            {
+                using (SqlConnection connect = DBConnection.GetConnection())
+                {
+                    connect.Open();
+                    using (SqlCommand cmd = new SqlCommand(updateStmt, connect))
+                    {
+                        cmd.Parameters.AddWithValue("@dc", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@incID", incidentID);
+                        int rowCount = cmd.ExecuteNonQuery();
+                        return (rowCount > 0);
+                    }
+                }
+
+            }
+            catch (SqlException sqlex)
+            {
+                throw sqlex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
 
 
 
