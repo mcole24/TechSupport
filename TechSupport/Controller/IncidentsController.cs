@@ -27,6 +27,10 @@ namespace TechSupport.Controller
             return IncidentsData.GetIncident(incidentID);
         }
 
+        public static bool CloseIncident(int incidentID)
+        {
+            return IncidentsData.CloseIncident(incidentID);
+        }
         
 
     }
