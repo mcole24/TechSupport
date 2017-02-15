@@ -136,14 +136,11 @@ namespace TechSupport.DBAccess
                             inc.Title = reader["Title"].ToString();
                             inc.Description = reader["Description"].ToString();
 
-                            if (reader["TechID"] == DBNull.Value)
-                            {
-                                inc = null;
-                            }
-                            else
+                            if (reader["TechID"] != DBNull.Value)
                             {
                                 inc.TechID = (int)reader["TechID"];
                             }
+                            
 
                             if (reader["IncidentID"] == DBNull.Value)
                             {

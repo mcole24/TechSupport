@@ -29,7 +29,8 @@ namespace TechSupport.View
 
         private void UpdateIncidentForm_Load(object sender, EventArgs e)
         {
-
+            updateButton.Enabled = false;
+            closeButton.Enabled = false;
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -58,8 +59,16 @@ namespace TechSupport.View
         {
             Incidents newInc = new Incidents();
             newInc.IncidentID = incident.IncidentID;
-            newInc.Description = incident.Description + "\nEDIT:\n" + textToAddBox.Text;
+            if (textToAddBox.Text == "")
+            {
+                newInc.Description = DateTime.Now.ToString() + " Technician has been updated/assigned.";
+            }
+            else
+            {
+                newInc.Description = incident.Description + "\n" + DateTime.Now.ToString() + "\nEDIT:\n" + textToAddBox.Text;
+            }
             newInc.TechID = (int)technicianComboBox.SelectedValue;
+
             try
             {
                 bool isUpdated = IncidentsController.UpdateIncident(incident, newInc);
@@ -86,28 +95,38 @@ namespace TechSupport.View
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            try
+            if (incident.TechID > 0)
             {
-                bool isClosed = IncidentsController.CloseIncident(incident.IncidentID);
-                if (isClosed)
+                if (this.ConfirmClose())
                 {
-                    MessageBox.Show("Incident has been closed.");
-                    this.ClearFields();
-                }
-                else
-                {
-                    MessageBox.Show("The incident could not be closed at ths time");
-                    this.ClearFields();
-                }
+                    try
+                    {
+                        bool isClosed = IncidentsController.CloseIncident(incident.IncidentID);
+                        if (isClosed)
+                        {
+                            MessageBox.Show("Incident has been closed.");
+                            this.ClearFields();
+                        }
+                        else
+                        {
+                            MessageBox.Show("The incident could not be closed at ths time");
+                            this.ClearFields();
+                        }
 
+                    }
+                    catch (SqlException sqlex)
+                    {
+                        MessageBox.Show(sqlex.Message, sqlex.GetType().ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, ex.GetType().ToString());
+                    }
+                }
             }
-            catch (SqlException sqlex)
+            else
             {
-                MessageBox.Show(sqlex.Message, sqlex.GetType().ToString());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                MessageBox.Show("An incident must have a technician assigned before it can be closed.");
             }
         }
 
