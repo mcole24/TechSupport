@@ -58,6 +58,7 @@ namespace TechSupport.View
         {
             Incidents newInc = new Incidents();
             newInc.IncidentID = incident.IncidentID;
+            newInc.Description = incident.Description + "\nEDIT:\n" + textToAddBox.Text;
             try
             {
                 bool isUpdated = IncidentsController.UpdateIncident(incident, newInc);
