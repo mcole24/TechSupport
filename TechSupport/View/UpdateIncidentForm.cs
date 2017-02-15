@@ -148,7 +148,7 @@ namespace TechSupport.View
                 MessageBox.Show("No incident could be found with this ID: " + incidentID);
                 return;
             }
-            else if (this.incident.DateClosed != null)
+            else if (this.incident.DateClosed != DateTime.MinValue)
             {
                 MessageBox.Show("Incident has been closed already.");
                 return;
@@ -164,15 +164,22 @@ namespace TechSupport.View
         private void DisplayIncident()
         {
             this.LoadTechnicians();
-            if (this.incident.TechID == null)
-            {
-                technicianComboBox.SelectedIndex = -1;
-            }
-            else
-            {
-                technicianComboBox.SelectedIndex = incident.TechID;
-            }
 
+            try
+            {
+                if (this.incident.TechID == null)
+                {
+                    technicianComboBox.SelectedIndex = -1;
+                }
+                else
+                {
+                    technicianComboBox.SelectedIndex = incident.TechID;
+                }
+            }
+            catch (Exception ex)
+            {
+                //do nothing
+            }
             technicianComboBox.Enabled = true;
             customerBox.Text = incident.CustomerName;
             productBox.Text = incident.ProductName;
