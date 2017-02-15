@@ -59,6 +59,7 @@ namespace TechSupport.View
             Incidents newInc = new Incidents();
             newInc.IncidentID = incident.IncidentID;
             newInc.Description = incident.Description + "\nEDIT:\n" + textToAddBox.Text;
+            newInc.TechID = this.incident.TechID;
             try
             {
                 bool isUpdated = IncidentsController.UpdateIncident(incident, newInc);
@@ -199,9 +200,9 @@ namespace TechSupport.View
             try
             {
                 this.technicians = TechniciansController.GetTechnicians();
-                technicianComboBox.DataSource = technicians;
+                technicianComboBox.DataSource = this.technicians;
                 technicianComboBox.DisplayMember = "Technicians";
-                technicianComboBox.ValueMember = "TechID";
+                technicianComboBox.ValueMember = "Name";
             }
             catch (Exception e)
             {
