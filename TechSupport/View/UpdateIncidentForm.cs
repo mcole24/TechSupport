@@ -59,7 +59,7 @@ namespace TechSupport.View
             Incidents newInc = new Incidents();
             newInc.IncidentID = incident.IncidentID;
             newInc.Description = incident.Description + "\nEDIT:\n" + textToAddBox.Text;
-            newInc.TechID = this.incident.TechID;
+            newInc.TechID = (int)technicianComboBox.SelectedValue;
             try
             {
                 bool isUpdated = IncidentsController.UpdateIncident(incident, newInc);
@@ -134,7 +134,6 @@ namespace TechSupport.View
         private void GetIncident(int incidentID)
         {
             
-
             try
             {
                 this.incident = IncidentsController.GetIncident(incidentID);
@@ -169,18 +168,11 @@ namespace TechSupport.View
 
             try
             {
-                if (this.incident.TechID == null)
-                {
-                    technicianComboBox.SelectedIndex = -1;
-                }
-                else
-                {
-                    technicianComboBox.SelectedIndex = incident.TechID;
-                }
+                technicianComboBox.SelectedValue = incident.TechID;
             }
             catch (Exception ex)
             {
-                //do nothing
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
             technicianComboBox.Enabled = true;
             customerBox.Text = incident.CustomerName;
@@ -201,8 +193,8 @@ namespace TechSupport.View
             {
                 this.technicians = TechniciansController.GetTechnicians();
                 technicianComboBox.DataSource = this.technicians;
-                technicianComboBox.DisplayMember = "Technicians";
-                technicianComboBox.ValueMember = "Name";
+                technicianComboBox.DisplayMember = "Name";
+                technicianComboBox.ValueMember = "TechID";
             }
             catch (Exception e)
             {

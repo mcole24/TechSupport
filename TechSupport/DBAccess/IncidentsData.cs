@@ -96,8 +96,8 @@ namespace TechSupport.DBAccess
         {
 
             Incidents inc = new Incidents();
-            string selStmt = "SELECT IncidentID, Incidents.CustomerID, Customers.Name, ProductCode, DateOpened, Title, Description, TechID " + 
-                "FROM Incidents INNER JOIN Customers ON Incidents.CustomerID = Customers.CustomerID WHERE IncidentID = " + @incidentID;
+            string selStmt = "SELECT IncidentID, Incidents.CustomerID, Customers.Name AS CustomerName, Incidents.ProductCode AS IncProductCode, Products.Name AS ProductName, DateOpened, DateClosed, Title, Description, TechID " +
+                "FROM Incidents INNER JOIN Customers ON Incidents.CustomerID = Customers.CustomerID INNER JOIN Products ON Incidents.ProductCode = Products.ProductCode WHERE IncidentID = " + @incidentID;
 
             try
             {
@@ -117,18 +117,26 @@ namespace TechSupport.DBAccess
 
                     using (SqlDataReader reader = selCmd.ExecuteReader())
                     {
-
-                        int customerName = reader.GetOrdinal("Name");
-                        int productCode = reader.GetOrdinal("ProductCode");
-                        int dateOpened = reader.GetOrdinal("DateOpened");
-                        int title = reader.GetOrdinal("Title");
-                        int description = reader.GetOrdinal("Description");
-                        int techID = reader.GetOrdinal("TechID");
-
-                        while (reader.Read())
+                        
+                        if (reader.Read())
                         {
 
-                            if (reader.IsDBNull(inc.TechID))
+
+                            if (reader["DateClosed"] != DBNull.Value)
+                            {
+                                inc.DateClosed = (DateTime)reader["DateClosed"];
+                            }
+
+
+                            inc.CustomerID = (int)reader["CustomerID"];
+                            inc.CustomerName = reader["CustomerName"].ToString();
+                            inc.ProductCode = reader["IncProductCode"].ToString();
+                            inc.ProductName = reader["ProductName"].ToString();
+                            inc.DateOpened = (DateTime)reader["DateOpened"];
+                            inc.Title = reader["Title"].ToString();
+                            inc.Description = reader["Description"].ToString();
+
+                            if (reader["TechID"] == DBNull.Value)
                             {
                                 inc = null;
                             }
@@ -137,14 +145,19 @@ namespace TechSupport.DBAccess
                                 inc.TechID = (int)reader["TechID"];
                             }
 
-                            inc.IncidentID = (int)reader["IncidentID"];
-                            inc.CustomerID = (int)reader["CustomerID"];
-                            inc.CustomerName = reader.GetString(customerName);
-                            inc.ProductCode = reader.GetString(productCode);
-                            inc.DateOpened = reader.GetDateTime(dateOpened);
-                            inc.Title = reader.GetString(title);
-                            inc.Description = reader.GetString(description);
+                            if (reader["IncidentID"] == DBNull.Value)
+                            {
+                                inc = null;
+                            }
+                            else
+                            {
+                                inc.IncidentID = (int)reader["IncidentID"];
+                            }
 
+                        }
+                        else
+                        {
+                            inc = null;
                         }
 
                         connect.Close();
