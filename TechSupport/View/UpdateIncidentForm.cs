@@ -19,12 +19,16 @@ namespace TechSupport.View
 
         private Incidents incident;
         private List<Technicians> technicians;
+        private Incidents newInc;
+        private bool isValidated;
+        private int oldSelectedTech;
 
 
         public UpdateIncidentForm()
         {
             InitializeComponent();
             this.incident = new Incidents();
+            this.newInc = new Incidents();
         }
 
         private void UpdateIncidentForm_Load(object sender, EventArgs e)
@@ -41,6 +45,7 @@ namespace TechSupport.View
         private void getIncidentButton_Click(object sender, EventArgs e)
         {
             int incidentID;
+            this.oldSelectedTech = technicianComboBox.SelectedIndex;
             try
             {
                 incidentID = Convert.ToInt32(incidentIDBox.Text);
@@ -57,30 +62,31 @@ namespace TechSupport.View
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            Incidents newInc = new Incidents();
-            newInc.IncidentID = incident.IncidentID;
-            if (textToAddBox.Text == "")
-            {
-                newInc.Description = DateTime.Now.ToString() + " Technician has been updated/assigned.";
-            }
-            else
-            {
-                newInc.Description = incident.Description + "\n" + DateTime.Now.ToString() + "\nEDIT:\n" + textToAddBox.Text;
-            }
-            newInc.TechID = (int)technicianComboBox.SelectedValue;
-
+            this.isValidated = true;
+            this.newInc = incident;
+            this.ValidateData(this.newInc);
+            
             try
             {
-                bool isUpdated = IncidentsController.UpdateIncident(incident, newInc);
-                if (isUpdated)
+
+                if (this.isValidated)
                 {
-                    MessageBox.Show("Incident has been updated.");
-                    ClearFields();
+                    bool isUpdated = IncidentsController.UpdateIncident(incident, this.newInc);
+                    if (isUpdated)
+                    {
+                        MessageBox.Show("Update was successful.");
+                        ClearFields();
+                    }
+                    else
+                    {
+                        MessageBox.Show("An unexpected error occurred while attempting to update this incident.");
+                        ClearFields();
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("There was an error when attempting to update the incident.");
-                    ClearFields();
+                    MessageBox.Show("There was a problem with some of the data specified. The incident was not updated.");
+                    return;
                 }
             }
             catch (SqlException sqlex)
@@ -139,6 +145,8 @@ namespace TechSupport.View
                 box.Text = "";
             }
             this.technicianComboBox.SelectedIndex = -1;
+            closeButton.Enabled = false;
+            updateButton.Enabled = false;
         }
 
         private bool ConfirmClose()
@@ -222,6 +230,60 @@ namespace TechSupport.View
         }
 
 
+        private void ValidateText(string addedText)
+        {
+            string validatedText = incident.Description + Environment.NewLine + "<" + DateTime.Now.ToString("d") + ">" + addedText;
+
+            if (validatedText.Length > 200)
+            {
+                DialogResult result = MessageBox.Show("The maximum length of the description may not exceed 200 characters (including time stamp). Text must be truncated or update will not be saved. Do you wish to truncate?", "Confirm", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    this.newInc.Description = validatedText.Substring(0, 199);
+                }
+                else
+                {
+                    this.isValidated = false;
+                    this.newInc.Description = incident.Description;
+                    return;
+                }
+            }
+            else
+            {
+                this.newInc.Description = validatedText;
+            }
+        }
+
+
+        private bool ValidateData(Incidents newIncident)
+        {
+            try
+            {
+                if ((int)technicianComboBox.SelectedValue == this.incident.TechID && textToAddBox.Text == "")
+                {
+                    MessageBox.Show("You must either add text or change the technician in order to save an update.");
+                    this.isValidated = false;
+                }
+                else
+                {
+                    if (textToAddBox.Text == "")
+                    {
+                        this.newInc.TechID = (int)technicianComboBox.SelectedValue;
+                        this.ValidateText("Technician updated/assigned.");
+                    }
+                    else
+                    {
+                        this.newInc.TechID = (int)technicianComboBox.SelectedValue;
+                        this.ValidateText(textToAddBox.Text);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+            return this.isValidated;
+        }
         
 
 
