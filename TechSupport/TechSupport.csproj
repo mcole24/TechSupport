@@ -100,6 +100,12 @@
     <Compile Include="View\UpdateIncidentForm.Designer.cs">
       <DependentUpon>UpdateIncidentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ViewIncidentsByTechnicianForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ViewIncidentsByTechnicianForm.Designer.cs">
+      <DependentUpon>ViewIncidentsByTechnicianForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\CreateIncidentForm.resx">
       <DependentUpon>CreateIncidentForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\UpdateIncidentForm.resx">
       <DependentUpon>UpdateIncidentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ViewIncidentsByTechnicianForm.resx">
+      <DependentUpon>ViewIncidentsByTechnicianForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
