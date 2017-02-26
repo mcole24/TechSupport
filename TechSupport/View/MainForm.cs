@@ -22,6 +22,7 @@ namespace TechSupport
         OpenIncidentsForm oif;
         CreateIncidentForm cif;
         UpdateIncidentForm uif;
+        ViewIncidentsByTechnicianForm vbt;
 
         private void displayOpenIncidentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -50,6 +51,11 @@ namespace TechSupport
         private void uif_FormClosed(object sender, FormClosedEventArgs e)
         {
             uif = null;
+        }
+
+        private void vbt_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            vbt = null;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -81,6 +87,17 @@ namespace TechSupport
                 uif.Show();
             }
             else uif.Activate();
+        }
+
+        private void viewIncidentsByTechniciansToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (vbt == null)
+            {
+                vbt = new View.ViewIncidentsByTechnicianForm();
+                vbt.MdiParent = this;
+                vbt.FormClosed += new FormClosedEventHandler(vbt_FormClosed);
+            }
+            else vbt.Activate();
         }
     }
 }
