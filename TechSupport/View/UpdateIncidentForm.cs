@@ -180,6 +180,9 @@ namespace TechSupport.View
             else if (this.incident.DateClosed != DateTime.MinValue)
             {
                 MessageBox.Show("Incident has been closed already.");
+                this.DisplayIncident();
+                updateButton.Enabled = false;
+                closeButton.Enabled = false;
                 return;
             }
             else
