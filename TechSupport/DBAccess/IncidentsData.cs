@@ -242,5 +242,50 @@ namespace TechSupport.DBAccess
         }
 
 
+
+
+        public static List<Incidents> GetIncidentsByTechnician(int TechID)
+        {
+            List<Incidents> incidentList = new List<Incidents>();
+            string selectStmt = "SELECT i.TechID, p.Name AS [Product], i.DateOpened, c.Name AS [Customer], i.Title " + 
+                "FROM Incidents i INNER JOIN Products p ON i.ProductCode = p.ProductCode " + 
+                "INNER JOIN Customers c ON i.CustomerID = c.CustomerID";
+            try
+            {
+                using (SqlConnection connect = DBConnection.GetConnection())
+                {
+                    connect.Open();
+                    using (SqlCommand cmd = new SqlCommand(selectStmt, connect))
+                    {
+                        cmd.Parameters.AddWithValue("@techID", TechID);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Incidents inc = new Incidents();
+                                inc.ProductName = reader["Product"].ToString();
+                                inc.DateOpened = (DateTime)reader["DateOpened"];
+                                inc.CustomerName = reader["Customer"].ToString();
+                                inc.Title = reader["Title"].ToString();
+                                incidentList.Add(inc);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException sqlex)
+            {
+                throw sqlex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return incidentList;
+        }
+
+
+
+
     }
 }
