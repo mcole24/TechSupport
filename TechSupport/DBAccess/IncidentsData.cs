@@ -223,6 +223,8 @@ namespace TechSupport.DBAccess
                         {
                             cmd.Parameters.AddWithValue("@newTech", newInc.TechID);
                         }
+              
+                        cmd.Parameters.AddWithValue("@oldDesc", oldInc.Description);
                         cmd.Parameters.AddWithValue("@oldIncID", oldInc.IncidentID);
                         cmd.Parameters.AddWithValue("@newDesc", newInc.Description);
                         return (cmd.ExecuteNonQuery() > 0);
