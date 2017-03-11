@@ -75,7 +75,8 @@ namespace TechSupport.View
                     if (isUpdated)
                     {
                         MessageBox.Show("Update was successful.");
-                        ClearFields();
+                        textToAddBox.Text = "";
+                        descriptionBox.Text = incident.Description;
                     }
                     else
                     {
