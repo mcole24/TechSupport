@@ -96,6 +96,7 @@ namespace TechSupport
                 vbt = new View.ViewIncidentsByTechnicianForm();
                 vbt.MdiParent = this;
                 vbt.FormClosed += new FormClosedEventHandler(vbt_FormClosed);
+                vbt.Show();
             }
             else vbt.Activate();
         }

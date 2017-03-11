@@ -17,9 +17,14 @@ namespace TechSupport.Controller
             return TechniciansData.GetTechnicians();
         }
 
-        public static List<Technicians> GetTechniciansWithIncidents(int techID)
+        public static List<Technicians> GetTechniciansWithIncidents()
         {
-            return GetTechniciansWithIncidents(techID);
+            return TechniciansData.GetTechniciansWithIncidents();
+        }
+
+        public static Technicians GetTechInfo(int techID)
+        {
+            return TechniciansData.GetTechInfo(techID);
         }
 
     }

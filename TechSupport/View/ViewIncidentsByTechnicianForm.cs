@@ -26,6 +26,8 @@ namespace TechSupport.View
 
         private void ViewIncidentsByTechnicianForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'techSupportDataSet.Technicians' table. You can move, or remove it, as needed.
+            this.techniciansTableAdapter.Fill(this.techSupportDataSet.Technicians);
             this.GetTechniciansWithIncidents();
             
         }
@@ -45,12 +47,16 @@ namespace TechSupport.View
         }
 
 
-        private void GetIncidents()
+        private void GetTechInfo()
         {
             try
             {
                 int techID = (int)techComboBox.SelectedValue;
-                this.tech = TechniciansController.
+                this.tech = TechniciansController.GetTechInfo(techID);
+                techniciansBindingSource.Clear();
+                techniciansBindingSource.Add(tech);
+                this.incidentList = IncidentsController.GetIncidentsByTechnician(techID);
+                incidentsDataGridView.DataSource = this.incidentList;
             }
             catch (Exception ex)
             {
@@ -58,7 +64,9 @@ namespace TechSupport.View
             }
         }
 
-
-
+        private void techComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.GetTechInfo();
+        }
     }
 }

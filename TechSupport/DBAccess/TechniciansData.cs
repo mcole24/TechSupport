@@ -64,7 +64,7 @@ namespace TechSupport.DBAccess
         public static List<Technicians> GetTechniciansWithIncidents()
         {
             List<Technicians> technicianList = new List<Technicians>();
-            string selStatement = "SELECT TechID, Name, Email, Phone FROM Technicians WHERE TechID = (SELECT DISTINCT TechID FROM Incidents )" + 
+            string selStatement = "SELECT TechID, Name, Email, Phone FROM Technicians WHERE TechID = (SELECT DISTINCT TechID FROM Incidents " + 
                 "WHERE Technicians.TechID = Incidents.TechID AND DateClosed IS NULL) ORDER BY Name";
             try
             {
@@ -149,7 +149,7 @@ namespace TechSupport.DBAccess
 
 
 
-        private static Technicians GetTechIncidentInfo()
+    
 
 
 
