@@ -26,9 +26,12 @@ namespace TechSupport.View
 
         private void ViewIncidentsByTechnicianForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'techSupportDataSet11.Technicians' table. You can move, or remove it, as needed.
+            //this.techniciansTableAdapter1.Fill(this.techSupportDataSet11.Technicians);
             // TODO: This line of code loads data into the 'techSupportDataSet.Technicians' table. You can move, or remove it, as needed.
-            this.techniciansTableAdapter.Fill(this.techSupportDataSet.Technicians);
+            //this.techniciansTableAdapter.Fill(this.techSupportDataSet.Technicians);
             this.GetTechniciansWithIncidents();
+            this.GetTechInfo();
             
         }
 
@@ -37,7 +40,7 @@ namespace TechSupport.View
         {
             try
             {
-                techList = TechniciansController.GetTechniciansWithIncidents();
+                this.techList = TechniciansController.GetTechniciansWithIncidents();
                 techComboBox.DataSource = techList;
             }
             catch (Exception ex)
@@ -53,10 +56,10 @@ namespace TechSupport.View
             {
                 int techID = (int)techComboBox.SelectedValue;
                 this.tech = TechniciansController.GetTechInfo(techID);
-                techniciansBindingSource.Clear();
-                techniciansBindingSource.Add(tech);
+                //techniciansBindingSource.Clear();
+                //techniciansBindingSource.Add(tech);
                 this.incidentList = IncidentsController.GetIncidentsByTechnician(techID);
-                incidentsDataGridView.DataSource = this.incidentList;
+                //incidentsDataGridView.DataSource = this.incidentList;
             }
             catch (Exception ex)
             {
@@ -67,6 +70,11 @@ namespace TechSupport.View
         private void techComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.GetTechInfo();
+        }
+
+        private void techniciansBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
