@@ -33,11 +33,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.techComboBox = new System.Windows.Forms.ComboBox();
-       
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            
-         
+            this.techSupportDataSet = new TechSupport.TechSupportDataSet();
+            this.techniciansBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.techniciansTableAdapter = new TechSupport.TechSupportDataSetTableAdapters.TechniciansTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.techniciansBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -69,7 +71,7 @@
             // 
             // techComboBox
             // 
-     
+            this.techComboBox.DataSource = this.techniciansBindingSource;
             this.techComboBox.DisplayMember = "Name";
             this.techComboBox.FormattingEnabled = true;
             this.techComboBox.Location = new System.Drawing.Point(229, 40);
@@ -78,7 +80,6 @@
             this.techComboBox.TabIndex = 3;
             this.techComboBox.ValueMember = "Name";
             this.techComboBox.SelectedIndexChanged += new System.EventHandler(this.techComboBox_SelectedIndexChanged);
-            
             // 
             // textBox1
             // 
@@ -93,7 +94,20 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(197, 20);
             this.textBox2.TabIndex = 5;
-          
+            // 
+            // techSupportDataSet
+            // 
+            this.techSupportDataSet.DataSetName = "TechSupportDataSet";
+            this.techSupportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // techniciansBindingSource
+            // 
+            this.techniciansBindingSource.DataMember = "Technicians";
+            this.techniciansBindingSource.DataSource = this.techSupportDataSet;
+            // 
+            // techniciansTableAdapter
+            // 
+            this.techniciansTableAdapter.ClearBeforeFill = true;
             // 
             // ViewIncidentsByTechnicianForm
             // 
@@ -109,7 +123,8 @@
             this.Name = "ViewIncidentsByTechnicianForm";
             this.Text = "View Incidents By Technician";
             this.Load += new System.EventHandler(this.ViewIncidentsByTechnicianForm_Load);
-
+            ((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.techniciansBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,5 +138,8 @@
         private System.Windows.Forms.ComboBox techComboBox;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private TechSupportDataSet techSupportDataSet;
+        private System.Windows.Forms.BindingSource techniciansBindingSource;
+        private TechSupportDataSetTableAdapters.TechniciansTableAdapter techniciansTableAdapter;
     }
 }

@@ -18,6 +18,7 @@ namespace TechSupport.View
         private List<Technicians> techList;
         private List<Incidents> incidentList;
         private Technicians tech;
+        
 
         public ViewIncidentsByTechnicianForm()
         {
@@ -26,16 +27,21 @@ namespace TechSupport.View
 
         private void ViewIncidentsByTechnicianForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'techSupportDataSet11.Technicians' table. You can move, or remove it, as needed.
-            //this.techniciansTableAdapter1.Fill(this.techSupportDataSet11.Technicians);
             // TODO: This line of code loads data into the 'techSupportDataSet.Technicians' table. You can move, or remove it, as needed.
             //this.techniciansTableAdapter.Fill(this.techSupportDataSet.Technicians);
-            this.GetTechniciansWithIncidents();
-            this.GetTechInfo();
-            
+            try
+            {
+                this.techList = TechniciansController.GetTechniciansWithIncidents();
+                techComboBox.DataSource = techList;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                this.BeginInvoke(new MethodInvoker(Close));
+            }         
         }
 
-
+        /*
         private void GetTechniciansWithIncidents()
         {
             try
@@ -48,16 +54,18 @@ namespace TechSupport.View
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
+        */
 
-
+            /*
         private void GetTechInfo()
         {
+            int techID = (int)techComboBox.SelectedValue;
             try
             {
-                int techID = (int)techComboBox.SelectedValue;
                 this.tech = TechniciansController.GetTechInfo(techID);
-                //techniciansBindingSource.Clear();
-                //techniciansBindingSource.Add(tech);
+                //this.tech = this.techList[techComboBox.SelectedIndex];
+                techniciansBindingSource.Clear();
+                techniciansBindingSource.Add(this.tech);
                 this.incidentList = IncidentsController.GetIncidentsByTechnician(techID);
                 //incidentsDataGridView.DataSource = this.incidentList;
             }
@@ -66,15 +74,29 @@ namespace TechSupport.View
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
+        */
 
         private void techComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.GetTechInfo();
+            try
+            {
+                if (techComboBox.SelectedIndex < 0)
+                {
+                    return;
+                }
+                this.tech = techList[techComboBox.SelectedIndex];
+                techniciansBindingSource.Clear();
+                techniciansBindingSource.Add(this.tech);
+                //this.incidentList = IncidentsController.GetIncidentsByTechnician(this.tech.TechID);
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                this.BeginInvoke(new MethodInvoker(Close));
+            }
         }
 
-        private void techniciansBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
