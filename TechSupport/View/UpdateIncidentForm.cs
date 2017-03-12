@@ -55,7 +55,7 @@ namespace TechSupport.View
             {
                 MessageBox.Show("Please input whole numbers only for the Incident ID.");
                 incidentIDBox.Text = "";
-                throw fex;
+                return;
             }
         
         }

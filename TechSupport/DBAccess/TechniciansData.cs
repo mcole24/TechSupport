@@ -63,31 +63,38 @@ namespace TechSupport.DBAccess
 
         public static List<Technicians> GetTechniciansWithIncidents()
         {
-            List<Technicians> techList = new List<Technicians>();
+            List<Technicians> technicianList = new List<Technicians>();
             string selStatement = "SELECT TechID, Name, Email, Phone FROM Technicians WHERE TechID = (SELECT DISTINCT TechID FROM Incidents " + 
-                "WHERE Technicians.TechID = Incidents.TechID AND DateClosed IS NULL) ORDER BY Name ASC";
+                "WHERE Technicians.TechID = Incidents.TechID AND DateClosed IS NULL) ORDER BY Name";
             try
             {
                 using (SqlConnection connect = DBConnection.GetConnection())
                 {
-                    connect.Open();
-                    using (SqlCommand selCmd = new SqlCommand(selStatement, connect))
+                    try
                     {
-                        using (SqlDataReader reader = selCmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                Technicians tech = new Technicians();
-                                tech.TechID = (int)reader["TechID"];
-                                tech.Name = reader["Name"].ToString();
-                                tech.Email = (string)reader["Email"];
-                                tech.Phone = (string)reader["Phone"];
-                                techList.Add(tech);
-                            }
-                            connect.Close();
-                        }
-
+                        connect.Open();
                     }
+                    catch (SqlException e)
+                    {
+                        throw e;
+                    }
+
+                    using (SqlCommand selCmd = new SqlCommand(selStatement, connect))
+                    using (SqlDataReader reader = selCmd.ExecuteReader())
+                    {
+                        int techOrder = reader.GetOrdinal("Name");
+                        while (reader.Read())
+                        {
+                            Technicians tech = new Technicians();
+                            tech.TechID = (int)reader["TechID"];
+                            tech.Name = reader.GetString(techOrder);
+                            tech.Email = (string)reader["Email"];
+                            tech.Phone = (string)reader["Phone"];
+                            technicianList.Add(tech);
+                        }
+                        connect.Close();
+                    }
+
                 }
             }
             catch (SqlException e)
@@ -98,7 +105,7 @@ namespace TechSupport.DBAccess
             {
                 throw e;
             }
-            return techList;
+            return technicianList;
         }
 
 
