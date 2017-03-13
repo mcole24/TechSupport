@@ -205,7 +205,8 @@ namespace TechSupport.DBAccess
 
         public static bool UpdateIncident(Incidents oldInc, Incidents newInc)
         {
-            string updateStmt = "UPDATE Incidents SET TechID = @newTech, Description = @newDesc WHERE IncidentID = @oldIncID";
+            string updateStmt = "UPDATE Incidents SET TechID = @newTech, Description = @newDesc WHERE IncidentID = @oldIncID " + 
+                "AND (TechID = @oldTech OR (TechID IS NULL AND @oldTech IS NULL))";
 
             try
             {
@@ -222,6 +223,15 @@ namespace TechSupport.DBAccess
                         else
                         {
                             cmd.Parameters.AddWithValue("@newTech", newInc.TechID);
+                        }
+
+                        if (oldInc.TechID == int.MinValue)
+                        {
+                            cmd.Parameters.AddWithValue("@oldTech", DBNull.Value);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@oldTech", oldInc.TechID);
                         }
               
                         cmd.Parameters.AddWithValue("@oldDesc", oldInc.Description);
@@ -249,7 +259,8 @@ namespace TechSupport.DBAccess
             List<Incidents> incidentList = new List<Incidents>();
             string selectStmt = "SELECT i.TechID, p.Name AS [Product], i.DateOpened, c.Name AS [Customer], i.Title " + 
                 "FROM Incidents i INNER JOIN Products p ON i.ProductCode = p.ProductCode " + 
-                "INNER JOIN Customers c ON i.CustomerID = c.CustomerID";
+                "INNER JOIN Customers c ON i.CustomerID = c.CustomerID " + 
+                "WHERE i.TechID = @techID AND i.DateClosed IS NULL";
             try
             {
                 using (SqlConnection connect = DBConnection.GetConnection())

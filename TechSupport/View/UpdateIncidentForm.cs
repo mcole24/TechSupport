@@ -183,6 +183,8 @@ namespace TechSupport.View
                 this.DisplayIncident();
                 updateButton.Enabled = false;
                 closeButton.Enabled = false;
+                textToAddBox.Enabled = false;
+                technicianComboBox.Enabled = false;
                 return;
             }
             else
