@@ -70,6 +70,11 @@
     <Compile Include="DBAccess\IncidentsData.cs" />
     <Compile Include="DBAccess\ProductsData.cs" />
     <Compile Include="DBAccess\TechniciansData.cs" />
+    <Compile Include="IncidentReportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncidentReportDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Model\Customers.cs" />
     <Compile Include="Model\Incidents.cs" />
     <Compile Include="Model\Products.cs" />
@@ -139,6 +144,17 @@
     <EmbeddedResource Include="View\ViewIncidentsByTechnicianForm.resx">
       <DependentUpon>ViewIncidentsByTechnicianForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="IncidentReportDataSet.xsc">
+      <DependentUpon>IncidentReportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="IncidentReportDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>IncidentReportDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="IncidentReportDataSet.xss">
+      <DependentUpon>IncidentReportDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\DataSources\TechSupport.Model.Incidents.datasource" />
     <None Include="Properties\DataSources\TechSupport.Model.Technicians.datasource" />
     <None Include="Properties\Settings.settings">
