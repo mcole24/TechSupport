@@ -94,6 +94,12 @@
     <Compile Include="View\OpenIncidentsForm.Designer.cs">
       <DependentUpon>OpenIncidentsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\OpenIncidentsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OpenIncidentsReport.Designer.cs">
+      <DependentUpon>OpenIncidentsReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UpdateIncidentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </Compile>
     <EmbeddedResource Include="View\OpenIncidentsForm.resx">
       <DependentUpon>OpenIncidentsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OpenIncidentsReport.resx">
+      <DependentUpon>OpenIncidentsReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UpdateIncidentForm.resx">
       <DependentUpon>UpdateIncidentForm.cs</DependentUpon>

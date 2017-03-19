@@ -36,6 +36,7 @@
             this.createIncidentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateIncidentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewIncidentsByTechniciansToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openIncidentsReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,7 +72,8 @@
             this.displayOpenIncidentsToolStripMenuItem,
             this.createIncidentToolStripMenuItem,
             this.updateIncidentToolStripMenuItem,
-            this.viewIncidentsByTechniciansToolStripMenuItem});
+            this.viewIncidentsByTechniciansToolStripMenuItem,
+            this.openIncidentsReportToolStripMenuItem});
             this.incidentsToolStripMenuItem.Name = "incidentsToolStripMenuItem";
             this.incidentsToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.incidentsToolStripMenuItem.Text = "Incidents";
@@ -104,6 +106,13 @@
             this.viewIncidentsByTechniciansToolStripMenuItem.Text = "View Incidents By Technicians";
             this.viewIncidentsByTechniciansToolStripMenuItem.Click += new System.EventHandler(this.viewIncidentsByTechniciansToolStripMenuItem_Click);
             // 
+            // openIncidentsReportToolStripMenuItem
+            // 
+            this.openIncidentsReportToolStripMenuItem.Name = "openIncidentsReportToolStripMenuItem";
+            this.openIncidentsReportToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.openIncidentsReportToolStripMenuItem.Text = "Open Incidents Report";
+            this.openIncidentsReportToolStripMenuItem.Click += new System.EventHandler(this.openIncidentsReportToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -131,6 +140,7 @@
         private System.Windows.Forms.ToolStripMenuItem createIncidentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateIncidentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewIncidentsByTechniciansToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openIncidentsReportToolStripMenuItem;
     }
 }
 
