@@ -17,5 +17,10 @@ namespace TechSupport.View
             InitializeComponent();
         }
 
+        private void OpenIncidentsReport_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewer1.RefreshReport();
+        }
     }
 }
