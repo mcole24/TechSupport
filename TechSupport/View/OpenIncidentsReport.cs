@@ -19,8 +19,16 @@ namespace TechSupport.View
 
         private void OpenIncidentsReport_Load(object sender, EventArgs e)
         {
-            this.incidentsTableAdapter.Fill(this.techSupportDataSet.Incidents);
-            this.reportViewer1.RefreshReport();
+            try
+            {
+                this.incidentsTableAdapter.Fill(this.techSupportDataSet.Incidents);
+                this.reportViewer1.RefreshReport();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                this.BeginInvoke(new MethodInvoker(Close));
+            }
         }
     }
 }
