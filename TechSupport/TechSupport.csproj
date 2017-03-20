@@ -77,6 +77,9 @@
     <Compile Include="Model\Incidents.cs" />
     <Compile Include="Model\Products.cs" />
     <Compile Include="Model\Technicians.cs" />
+    <Compile Include="TechSupportDataSet.cs">
+      <DependentUpon>TechSupportDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TechSupportDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -120,9 +123,7 @@
     <Compile Include="View\ViewIncidentsByTechnicianForm.Designer.cs">
       <DependentUpon>ViewIncidentsByTechnicianForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Report1.rdlc">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="View\CreateIncidentForm.resx">
       <DependentUpon>CreateIncidentForm.cs</DependentUpon>
     </EmbeddedResource>

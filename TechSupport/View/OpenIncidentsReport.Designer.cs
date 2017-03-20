@@ -31,17 +31,17 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.techSupportDataSet = new TechSupport.TechSupportDataSet();
             this.incidentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.techSupportDataSet = new TechSupport.TechSupportDataSet();
             this.incidentsTableAdapter = new TechSupport.TechSupportDataSetTableAdapters.IncidentsTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incidentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "IncidentDataSet";
+            reportDataSource1.Name = "IncidentData";
             reportDataSource1.Value = this.incidentsBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "TechSupport.Report1.rdlc";
@@ -50,15 +50,15 @@
             this.reportViewer1.Size = new System.Drawing.Size(739, 445);
             this.reportViewer1.TabIndex = 0;
             // 
-            // techSupportDataSet
-            // 
-            this.techSupportDataSet.DataSetName = "TechSupportDataSet";
-            this.techSupportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // incidentsBindingSource
             // 
             this.incidentsBindingSource.DataMember = "Incidents";
             this.incidentsBindingSource.DataSource = this.techSupportDataSet;
+            // 
+            // techSupportDataSet
+            // 
+            this.techSupportDataSet.DataSetName = "TechSupportDataSet";
+            this.techSupportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // incidentsTableAdapter
             // 
@@ -71,8 +71,8 @@
             this.Name = "OpenIncidentsReport";
             this.Text = "Open Incidents Report";
             this.Load += new System.EventHandler(this.OpenIncidentsReport_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.incidentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
