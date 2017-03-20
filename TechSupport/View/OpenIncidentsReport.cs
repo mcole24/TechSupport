@@ -19,7 +19,7 @@ namespace TechSupport.View
 
         private void OpenIncidentsReport_Load(object sender, EventArgs e)
         {
-
+            this.technicianIncidentsTableAdapter.Fill(this.incidentReportDataSet.TechnicianIncidents);
             this.reportViewer1.RefreshReport();
         }
     }
