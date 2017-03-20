@@ -19,7 +19,10 @@ namespace TechSupport.View
 
         private void OpenIncidentsReport_Load(object sender, EventArgs e)
         {
-            this.technicianIncidentsTableAdapter.Fill(this.incidentReportDataSet.TechnicianIncidents);
+            // TODO: This line of code loads data into the 'techSupportDataSet.Incidents' table. You can move, or remove it, as needed.
+            this.incidentsTableAdapter.Fill(this.techSupportDataSet.Incidents);
+            //this.technicianIncidentsTableAdapter.Fill(this.incidentReportDataSet.TechnicianIncidents);
+            //this.reportViewer1.RefreshReport();
             this.reportViewer1.RefreshReport();
         }
     }

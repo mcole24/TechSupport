@@ -73,15 +73,15 @@
     <Compile Include="DBAccess\IncidentsData.cs" />
     <Compile Include="DBAccess\ProductsData.cs" />
     <Compile Include="DBAccess\TechniciansData.cs" />
-    <Compile Include="IncidentReportDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>IncidentReportDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Model\Customers.cs" />
     <Compile Include="Model\Incidents.cs" />
     <Compile Include="Model\Products.cs" />
     <Compile Include="Model\Technicians.cs" />
+    <Compile Include="TechSupportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TechSupportDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="View\CreateIncidentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,17 +148,6 @@
     <EmbeddedResource Include="View\ViewIncidentsByTechnicianForm.resx">
       <DependentUpon>ViewIncidentsByTechnicianForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="IncidentReportDataSet.xsc">
-      <DependentUpon>IncidentReportDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="IncidentReportDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>IncidentReportDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="IncidentReportDataSet.xss">
-      <DependentUpon>IncidentReportDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\DataSources\TechSupport.Model.Incidents.datasource" />
     <None Include="Properties\DataSources\TechSupport.Model.Technicians.datasource" />
     <None Include="Properties\Settings.settings">
@@ -170,6 +159,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="TechSupportDataSet.xsc">
+      <DependentUpon>TechSupportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TechSupportDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TechSupportDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TechSupportDataSet.xss">
+      <DependentUpon>TechSupportDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

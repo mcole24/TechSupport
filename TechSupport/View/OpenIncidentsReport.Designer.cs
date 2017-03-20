@@ -30,31 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.incidentReportDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.incidentReportDataSet = new TechSupport.IncidentReportDataSet();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.technicianIncidentsTableAdapter = new TechSupport.IncidentReportDataSetTableAdapters.TechnicianIncidentsTableAdapter();
-            this.technicianIncidentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.incidentReportDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incidentReportDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.technicianIncidentsBindingSource)).BeginInit();
+            this.techSupportDataSet = new TechSupport.TechSupportDataSet();
+            this.incidentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.incidentsTableAdapter = new TechSupport.TechSupportDataSetTableAdapters.IncidentsTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incidentsBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // incidentReportDataSetBindingSource
-            // 
-            this.incidentReportDataSetBindingSource.DataSource = this.incidentReportDataSet;
-            this.incidentReportDataSetBindingSource.Position = 0;
-            // 
-            // incidentReportDataSet
-            // 
-            this.incidentReportDataSet.DataSetName = "IncidentReportDataSet";
-            this.incidentReportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "OpenIncidentsForTechnicians";
-            reportDataSource1.Value = this.technicianIncidentsBindingSource;
+            reportDataSource1.Name = "IncidentDataSet";
+            reportDataSource1.Value = this.incidentsBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "TechSupport.Report1.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
@@ -62,14 +50,19 @@
             this.reportViewer1.Size = new System.Drawing.Size(739, 445);
             this.reportViewer1.TabIndex = 0;
             // 
-            // technicianIncidentsTableAdapter
+            // techSupportDataSet
             // 
-            this.technicianIncidentsTableAdapter.ClearBeforeFill = true;
+            this.techSupportDataSet.DataSetName = "TechSupportDataSet";
+            this.techSupportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // technicianIncidentsBindingSource
+            // incidentsBindingSource
             // 
-            this.technicianIncidentsBindingSource.DataMember = "TechnicianIncidents";
-            this.technicianIncidentsBindingSource.DataSource = this.incidentReportDataSetBindingSource;
+            this.incidentsBindingSource.DataMember = "Incidents";
+            this.incidentsBindingSource.DataSource = this.techSupportDataSet;
+            // 
+            // incidentsTableAdapter
+            // 
+            this.incidentsTableAdapter.ClearBeforeFill = true;
             // 
             // OpenIncidentsReport
             // 
@@ -78,9 +71,8 @@
             this.Name = "OpenIncidentsReport";
             this.Text = "Open Incidents Report";
             this.Load += new System.EventHandler(this.OpenIncidentsReport_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.incidentReportDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incidentReportDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.technicianIncidentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incidentsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -88,9 +80,8 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.BindingSource incidentReportDataSetBindingSource;
-        private IncidentReportDataSet incidentReportDataSet;
-        private IncidentReportDataSetTableAdapters.TechnicianIncidentsTableAdapter technicianIncidentsTableAdapter;
-        private System.Windows.Forms.BindingSource technicianIncidentsBindingSource;
+        private TechSupportDataSet techSupportDataSet;
+        private System.Windows.Forms.BindingSource incidentsBindingSource;
+        private TechSupportDataSetTableAdapters.IncidentsTableAdapter incidentsTableAdapter;
     }
 }

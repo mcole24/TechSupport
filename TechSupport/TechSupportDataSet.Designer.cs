@@ -20,17 +20,17 @@ namespace TechSupport {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("IncidentReportDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("TechSupportDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class IncidentReportDataSet : global::System.Data.DataSet {
+    public partial class TechSupportDataSet : global::System.Data.DataSet {
         
-        private TechnicianIncidentsDataTable tableTechnicianIncidents;
+        private IncidentsDataTable tableIncidents;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public IncidentReportDataSet() {
+        public TechSupportDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace TechSupport {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected IncidentReportDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected TechSupportDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace TechSupport {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["TechnicianIncidents"] != null)) {
-                    base.Tables.Add(new TechnicianIncidentsDataTable(ds.Tables["TechnicianIncidents"]));
+                if ((ds.Tables["Incidents"] != null)) {
+                    base.Tables.Add(new IncidentsDataTable(ds.Tables["Incidents"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace TechSupport {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public TechnicianIncidentsDataTable TechnicianIncidents {
+        public IncidentsDataTable Incidents {
             get {
-                return this.tableTechnicianIncidents;
+                return this.tableIncidents;
             }
         }
         
@@ -127,7 +127,7 @@ namespace TechSupport {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            IncidentReportDataSet cln = ((IncidentReportDataSet)(base.Clone()));
+            TechSupportDataSet cln = ((TechSupportDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace TechSupport {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["TechnicianIncidents"] != null)) {
-                    base.Tables.Add(new TechnicianIncidentsDataTable(ds.Tables["TechnicianIncidents"]));
+                if ((ds.Tables["Incidents"] != null)) {
+                    base.Tables.Add(new IncidentsDataTable(ds.Tables["Incidents"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace TechSupport {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableTechnicianIncidents = ((TechnicianIncidentsDataTable)(base.Tables["TechnicianIncidents"]));
+            this.tableIncidents = ((IncidentsDataTable)(base.Tables["Incidents"]));
             if ((initTable == true)) {
-                if ((this.tableTechnicianIncidents != null)) {
-                    this.tableTechnicianIncidents.InitVars();
+                if ((this.tableIncidents != null)) {
+                    this.tableIncidents.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace TechSupport {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "IncidentReportDataSet";
+            this.DataSetName = "TechSupportDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/IncidentReportDataSet.xsd";
+            this.Namespace = "http://tempuri.org/TechSupportDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableTechnicianIncidents = new TechnicianIncidentsDataTable();
-            base.Tables.Add(this.tableTechnicianIncidents);
+            this.tableIncidents = new IncidentsDataTable();
+            base.Tables.Add(this.tableIncidents);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeTechnicianIncidents() {
+        private bool ShouldSerializeIncidents() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace TechSupport {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            IncidentReportDataSet ds = new IncidentReportDataSet();
+            TechSupportDataSet ds = new TechSupportDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,18 +270,16 @@ namespace TechSupport {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void TechnicianIncidentsRowChangeEventHandler(object sender, TechnicianIncidentsRowChangeEvent e);
+        public delegate void IncidentsRowChangeEventHandler(object sender, IncidentsRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class TechnicianIncidentsDataTable : global::System.Data.TypedTableBase<TechnicianIncidentsRow> {
+        public partial class IncidentsDataTable : global::System.Data.TypedTableBase<IncidentsRow> {
             
             private global::System.Data.DataColumn columnDateOpened;
-            
-            private global::System.Data.DataColumn columnTitle;
             
             private global::System.Data.DataColumn columnProduct;
             
@@ -289,10 +287,12 @@ namespace TechSupport {
             
             private global::System.Data.DataColumn columnTechnician;
             
+            private global::System.Data.DataColumn columnTitle;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TechnicianIncidentsDataTable() {
-                this.TableName = "TechnicianIncidents";
+            public IncidentsDataTable() {
+                this.TableName = "Incidents";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -300,7 +300,7 @@ namespace TechSupport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal TechnicianIncidentsDataTable(global::System.Data.DataTable table) {
+            internal IncidentsDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -317,7 +317,7 @@ namespace TechSupport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected TechnicianIncidentsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected IncidentsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -327,14 +327,6 @@ namespace TechSupport {
             public global::System.Data.DataColumn DateOpenedColumn {
                 get {
                     return this.columnDateOpened;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TitleColumn {
-                get {
-                    return this.columnTitle;
                 }
             }
             
@@ -364,6 +356,14 @@ namespace TechSupport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TitleColumn {
+                get {
+                    return this.columnTitle;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -373,49 +373,49 @@ namespace TechSupport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TechnicianIncidentsRow this[int index] {
+            public IncidentsRow this[int index] {
                 get {
-                    return ((TechnicianIncidentsRow)(this.Rows[index]));
+                    return ((IncidentsRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event TechnicianIncidentsRowChangeEventHandler TechnicianIncidentsRowChanging;
+            public event IncidentsRowChangeEventHandler IncidentsRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event TechnicianIncidentsRowChangeEventHandler TechnicianIncidentsRowChanged;
+            public event IncidentsRowChangeEventHandler IncidentsRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event TechnicianIncidentsRowChangeEventHandler TechnicianIncidentsRowDeleting;
+            public event IncidentsRowChangeEventHandler IncidentsRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event TechnicianIncidentsRowChangeEventHandler TechnicianIncidentsRowDeleted;
+            public event IncidentsRowChangeEventHandler IncidentsRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddTechnicianIncidentsRow(TechnicianIncidentsRow row) {
+            public void AddIncidentsRow(IncidentsRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TechnicianIncidentsRow AddTechnicianIncidentsRow(System.DateTime DateOpened, string Title, string Product, string Customer, string Technician) {
-                TechnicianIncidentsRow rowTechnicianIncidentsRow = ((TechnicianIncidentsRow)(this.NewRow()));
+            public IncidentsRow AddIncidentsRow(System.DateTime DateOpened, string Product, string Customer, string Technician, string Title) {
+                IncidentsRow rowIncidentsRow = ((IncidentsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         DateOpened,
-                        Title,
                         Product,
                         Customer,
-                        Technician};
-                rowTechnicianIncidentsRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowTechnicianIncidentsRow);
-                return rowTechnicianIncidentsRow;
+                        Technician,
+                        Title};
+                rowIncidentsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowIncidentsRow);
+                return rowIncidentsRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                TechnicianIncidentsDataTable cln = ((TechnicianIncidentsDataTable)(base.Clone()));
+                IncidentsDataTable cln = ((IncidentsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -423,17 +423,17 @@ namespace TechSupport {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new TechnicianIncidentsDataTable();
+                return new IncidentsDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnDateOpened = base.Columns["DateOpened"];
-                this.columnTitle = base.Columns["Title"];
                 this.columnProduct = base.Columns["Product"];
                 this.columnCustomer = base.Columns["Customer"];
                 this.columnTechnician = base.Columns["Technician"];
+                this.columnTitle = base.Columns["Title"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -441,49 +441,49 @@ namespace TechSupport {
             private void InitClass() {
                 this.columnDateOpened = new global::System.Data.DataColumn("DateOpened", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDateOpened);
-                this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTitle);
                 this.columnProduct = new global::System.Data.DataColumn("Product", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProduct);
                 this.columnCustomer = new global::System.Data.DataColumn("Customer", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCustomer);
                 this.columnTechnician = new global::System.Data.DataColumn("Technician", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTechnician);
+                this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTitle);
                 this.columnDateOpened.AllowDBNull = false;
-                this.columnTitle.AllowDBNull = false;
-                this.columnTitle.MaxLength = 50;
                 this.columnProduct.AllowDBNull = false;
                 this.columnProduct.MaxLength = 50;
                 this.columnCustomer.AllowDBNull = false;
                 this.columnCustomer.MaxLength = 50;
                 this.columnTechnician.AllowDBNull = false;
                 this.columnTechnician.MaxLength = 50;
+                this.columnTitle.AllowDBNull = false;
+                this.columnTitle.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TechnicianIncidentsRow NewTechnicianIncidentsRow() {
-                return ((TechnicianIncidentsRow)(this.NewRow()));
+            public IncidentsRow NewIncidentsRow() {
+                return ((IncidentsRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new TechnicianIncidentsRow(builder);
+                return new IncidentsRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(TechnicianIncidentsRow);
+                return typeof(IncidentsRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.TechnicianIncidentsRowChanged != null)) {
-                    this.TechnicianIncidentsRowChanged(this, new TechnicianIncidentsRowChangeEvent(((TechnicianIncidentsRow)(e.Row)), e.Action));
+                if ((this.IncidentsRowChanged != null)) {
+                    this.IncidentsRowChanged(this, new IncidentsRowChangeEvent(((IncidentsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -491,8 +491,8 @@ namespace TechSupport {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.TechnicianIncidentsRowChanging != null)) {
-                    this.TechnicianIncidentsRowChanging(this, new TechnicianIncidentsRowChangeEvent(((TechnicianIncidentsRow)(e.Row)), e.Action));
+                if ((this.IncidentsRowChanging != null)) {
+                    this.IncidentsRowChanging(this, new IncidentsRowChangeEvent(((IncidentsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -500,8 +500,8 @@ namespace TechSupport {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.TechnicianIncidentsRowDeleted != null)) {
-                    this.TechnicianIncidentsRowDeleted(this, new TechnicianIncidentsRowChangeEvent(((TechnicianIncidentsRow)(e.Row)), e.Action));
+                if ((this.IncidentsRowDeleted != null)) {
+                    this.IncidentsRowDeleted(this, new IncidentsRowChangeEvent(((IncidentsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -509,14 +509,14 @@ namespace TechSupport {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.TechnicianIncidentsRowDeleting != null)) {
-                    this.TechnicianIncidentsRowDeleting(this, new TechnicianIncidentsRowChangeEvent(((TechnicianIncidentsRow)(e.Row)), e.Action));
+                if ((this.IncidentsRowDeleting != null)) {
+                    this.IncidentsRowDeleting(this, new IncidentsRowChangeEvent(((IncidentsRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveTechnicianIncidentsRow(TechnicianIncidentsRow row) {
+            public void RemoveIncidentsRow(IncidentsRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -525,7 +525,7 @@ namespace TechSupport {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                IncidentReportDataSet ds = new IncidentReportDataSet();
+                TechSupportDataSet ds = new TechSupportDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -543,7 +543,7 @@ namespace TechSupport {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "TechnicianIncidentsDataTable";
+                attribute2.FixedValue = "IncidentsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -587,36 +587,25 @@ namespace TechSupport {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class TechnicianIncidentsRow : global::System.Data.DataRow {
+        public partial class IncidentsRow : global::System.Data.DataRow {
             
-            private TechnicianIncidentsDataTable tableTechnicianIncidents;
+            private IncidentsDataTable tableIncidents;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal TechnicianIncidentsRow(global::System.Data.DataRowBuilder rb) : 
+            internal IncidentsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableTechnicianIncidents = ((TechnicianIncidentsDataTable)(this.Table));
+                this.tableIncidents = ((IncidentsDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.DateTime DateOpened {
                 get {
-                    return ((global::System.DateTime)(this[this.tableTechnicianIncidents.DateOpenedColumn]));
+                    return ((global::System.DateTime)(this[this.tableIncidents.DateOpenedColumn]));
                 }
                 set {
-                    this[this.tableTechnicianIncidents.DateOpenedColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Title {
-                get {
-                    return ((string)(this[this.tableTechnicianIncidents.TitleColumn]));
-                }
-                set {
-                    this[this.tableTechnicianIncidents.TitleColumn] = value;
+                    this[this.tableIncidents.DateOpenedColumn] = value;
                 }
             }
             
@@ -624,10 +613,10 @@ namespace TechSupport {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Product {
                 get {
-                    return ((string)(this[this.tableTechnicianIncidents.ProductColumn]));
+                    return ((string)(this[this.tableIncidents.ProductColumn]));
                 }
                 set {
-                    this[this.tableTechnicianIncidents.ProductColumn] = value;
+                    this[this.tableIncidents.ProductColumn] = value;
                 }
             }
             
@@ -635,10 +624,10 @@ namespace TechSupport {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Customer {
                 get {
-                    return ((string)(this[this.tableTechnicianIncidents.CustomerColumn]));
+                    return ((string)(this[this.tableIncidents.CustomerColumn]));
                 }
                 set {
-                    this[this.tableTechnicianIncidents.CustomerColumn] = value;
+                    this[this.tableIncidents.CustomerColumn] = value;
                 }
             }
             
@@ -646,10 +635,21 @@ namespace TechSupport {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Technician {
                 get {
-                    return ((string)(this[this.tableTechnicianIncidents.TechnicianColumn]));
+                    return ((string)(this[this.tableIncidents.TechnicianColumn]));
                 }
                 set {
-                    this[this.tableTechnicianIncidents.TechnicianColumn] = value;
+                    this[this.tableIncidents.TechnicianColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Title {
+                get {
+                    return ((string)(this[this.tableIncidents.TitleColumn]));
+                }
+                set {
+                    this[this.tableIncidents.TitleColumn] = value;
                 }
             }
         }
@@ -658,22 +658,22 @@ namespace TechSupport {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class TechnicianIncidentsRowChangeEvent : global::System.EventArgs {
+        public class IncidentsRowChangeEvent : global::System.EventArgs {
             
-            private TechnicianIncidentsRow eventRow;
+            private IncidentsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TechnicianIncidentsRowChangeEvent(TechnicianIncidentsRow row, global::System.Data.DataRowAction action) {
+            public IncidentsRowChangeEvent(IncidentsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TechnicianIncidentsRow Row {
+            public IncidentsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -689,7 +689,7 @@ namespace TechSupport {
         }
     }
 }
-namespace TechSupport.IncidentReportDataSetTableAdapters {
+namespace TechSupport.TechSupportDataSetTableAdapters {
     
     
     /// <summary>
@@ -701,7 +701,7 @@ namespace TechSupport.IncidentReportDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class TechnicianIncidentsTableAdapter : global::System.ComponentModel.Component {
+    public partial class IncidentsTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -715,7 +715,7 @@ namespace TechSupport.IncidentReportDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public TechnicianIncidentsTableAdapter() {
+        public IncidentsTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -812,12 +812,12 @@ namespace TechSupport.IncidentReportDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "TechnicianIncidents";
+            tableMapping.DataSetTable = "Incidents";
             tableMapping.ColumnMappings.Add("DateOpened", "DateOpened");
-            tableMapping.ColumnMappings.Add("Title", "Title");
             tableMapping.ColumnMappings.Add("Product", "Product");
             tableMapping.ColumnMappings.Add("Customer", "Customer");
             tableMapping.ColumnMappings.Add("Technician", "Technician");
+            tableMapping.ColumnMappings.Add("Title", "Title");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -839,7 +839,7 @@ FROM            Incidents AS i INNER JOIN
                          Products AS p ON i.ProductCode = p.ProductCode INNER JOIN
                          Customers AS c ON i.CustomerID = c.CustomerID INNER JOIN
                          Technicians AS t ON i.TechID = t.TechID
-ORDER BY Product, i.Title, Customer";
+ORDER BY p.Name, i.Title, c.Name";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -847,7 +847,7 @@ ORDER BY Product, i.Title, Customer";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(IncidentReportDataSet.TechnicianIncidentsDataTable dataTable) {
+        public virtual int Fill(TechSupportDataSet.IncidentsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -860,9 +860,9 @@ ORDER BY Product, i.Title, Customer";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual IncidentReportDataSet.TechnicianIncidentsDataTable GetData() {
+        public virtual TechSupportDataSet.IncidentsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            IncidentReportDataSet.TechnicianIncidentsDataTable dataTable = new IncidentReportDataSet.TechnicianIncidentsDataTable();
+            TechSupportDataSet.IncidentsDataTable dataTable = new TechSupportDataSet.IncidentsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -936,7 +936,7 @@ ORDER BY Product, i.Title, Customer";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(IncidentReportDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(TechSupportDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -946,7 +946,7 @@ ORDER BY Product, i.Title, Customer";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(IncidentReportDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(TechSupportDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -956,7 +956,7 @@ ORDER BY Product, i.Title, Customer";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(IncidentReportDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(TechSupportDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -990,7 +990,7 @@ ORDER BY Product, i.Title, Customer";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(IncidentReportDataSet dataSet) {
+        public virtual int UpdateAll(TechSupportDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
