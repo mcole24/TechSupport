@@ -199,10 +199,6 @@
 
         #endregion
         private System.Windows.Forms.BindingSource techniciansBindingSource;   
-        private System.Windows.Forms.DataGridViewTextBoxColumn techIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource techniciansBindingSource1;
         private System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.ComboBox techComboBox;

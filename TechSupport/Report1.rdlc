@@ -6,24 +6,24 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.3in</Width>
+              <Width>0.92917in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.3in</Width>
+              <Width>0.92917in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.3in</Width>
+              <Width>0.92917in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.3in</Width>
+              <Width>0.92917in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.3in</Width>
+              <Width>0.92917in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>1in</Height>
+              <Height>0.69792in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -208,7 +208,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>1in</Height>
+              <Height>0.69792in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -399,14 +399,50 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>IncidentDataSet</DataSetName>
-        <Height>2in</Height>
-        <Width>6.5in</Width>
+        <Top>0.60417in</Top>
+        <Left>0.80417in</Left>
+        <Height>1.39583in</Height>
+        <Width>4.64583in</Width>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
+      <Textbox Name="Textbox4">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Open incidents assigned to technicians</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                  <Color>White</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>0.11458in</Top>
+        <Left>1.59042in</Left>
+        <Height>0.25in</Height>
+        <Width>2.93042in</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <BackgroundColor>DimGray</BackgroundColor>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
     <Height>2in</Height>
     <Style />

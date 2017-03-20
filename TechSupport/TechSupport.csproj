@@ -120,7 +120,9 @@
     <Compile Include="View\ViewIncidentsByTechnicianForm.Designer.cs">
       <DependentUpon>ViewIncidentsByTechnicianForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="Report1.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\CreateIncidentForm.resx">
       <DependentUpon>CreateIncidentForm.cs</DependentUpon>
     </EmbeddedResource>
